@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <!-- Mobile friendly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday, My Kindred ❤️</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Poppins", sans-serif;
+
+            color: white;
+
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 20% 15%,
+                    rgba(255, 65, 170, 0.30),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(133, 64, 255, 0.25),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 50% 80%,
+                    rgba(255, 87, 181, 0.18),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #12051f 0%,
+                    #21092e 35%,
+                    #16051f 70%,
+                    #0d0418 100%
+                );
+        }
+
+
+        /* =========================================
+           STARS
+        ========================================= */
+
+        .stars {
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            opacity: 0.5;
+
+            animation: twinkle 2s infinite alternate;
+        }
+ 
+        .poem {
+    font-family: "Caveat", cursive;
+    font-size: 27px;
+    line-height: 1.55;
+    text-align: left;
+    color: #34244a;
+}
+
+        @keyframes twinkle {
+
+            from {
+                opacity: 0.15;
+                transform: scale(0.6);
+            }
+
+            to {
+                opacity: 0.9;
+                transform: scale(1.5);
+            }
+        }
+
+
+        /* =========================================
+           MOON
+        ========================================= */
+
+        .moon {
+            position: fixed;
+
+            top: 50px;
+            right: 8%;
+
+            width: 75px;
+            height: 75px;
+
+            border-radius: 50%;
+
+            background: #fff0d0;
+
+            box-shadow:
+                0 0 25px rgba(255, 240, 208, 0.7),
+                0 0 70px rgba(255, 240, 208, 0.25);
+
+            z-index: 1;
+        }
+
+        .moon::after {
+            content: "";
+
+            position: absolute;
+
+            top: -8px;
+            left: 20px;
+
+            width: 75px;
+            height: 75px;
+
+            border-radius: 50%;
+
+            background: #14051f;
+        }
+
+
+        /* =========================================
+           FLOATING HEARTS
+        ========================================= */
+
+        .heart {
+            position: fixed;
+
+            bottom: -60px;
+
+            pointer-events: none;
+
+            z-index: 20;
+
+            animation:
+                heartFloat linear forwards;
+        }
+
+        @keyframes heartFloat {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(-115vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+        .hero-content {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            animation: heroAppear 1.5s ease;
+        }
+
+        @keyframes heroAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(50px)
+                    scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        /* =========================================
+           TOP TEXT
+        ========================================= */
+
+        .small-title {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 16px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color: #f6dce9;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================================
+           MAIN TITLE
+        ========================================= */
+
+        .hero h1 {
+
+            font-family:
+                "Dancing Script",
+                cursive;
+
+            font-size:
+                clamp(65px, 13vw, 135px);
+
+            line-height: 0.85;
+
+            color: #fff;
+
+            text-shadow:
+                0 0 12px rgba(255, 101, 185, 0.8),
+                0 0 35px rgba(255, 40, 160, 0.55);
+
+            animation:
+                titleGlow 2.5s infinite alternate;
+        }
+
+        @keyframes titleGlow {
+
+            from {
+
+                text-shadow:
+                    0 0 10px
+                    rgba(255, 100, 190, 0.5);
+            }
+
+            to {
+
+                text-shadow:
+                    0 0 20px
+                    rgba(255, 130, 205, 0.9),
+
+                    0 0 50px
+                    rgba(255, 40, 160, 0.7);
+            }
+        }
+
+
+        /* =========================================
+           KINDRED
+        ========================================= */
+
+        .kindred {
+
+            margin-top: 25px;
+
+            font-family:
+                "Dancing Script",
+                cursive;
+
+            font-size:
+                clamp(40px, 8vw, 70px);
+
+            color: #ffc5df;
+
+            text-shadow:
+                0 0 20px
+                rgba(255, 75, 170, 0.5);
+        }
+
+
+        /* =========================================
+           CAKE
+        ========================================= */
+
+        .cake {
+
+            font-size: 75px;
+
+            margin: 25px 0;
+
+            animation:
+                cakeFloat 3s
+                ease-in-out
+                infinite;
+        }
+
+        @keyframes cakeFloat {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+
+        /* =========================================
+           HERO MESSAGE
+        ========================================= */
+
+        .hero-message {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 22px;
+
+            line-height: 1.7;
+
+            color: #f7dfeb;
+        }
+
+
+        /* =========================================
+           BUTTON
+        ========================================= */
+
+        .btn {
+
+            border: none;
+
+            margin-top: 30px;
+
+            padding: 15px 32px;
+
+            border-radius: 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4fa3,
+                    #a43bd2
+                );
+
+            color: white;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 35px
+                rgba(230, 45, 157, 0.35);
+
+            transition:
+                0.3s ease;
+        }
+
+        .btn:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.04);
+
+            box-shadow:
+                0 15px 45px
+                rgba(230, 45, 157, 0.55);
+        }
+
+        .btn:active {
+
+            transform: scale(0.95);
+        }
+
+
+        /* =========================================
+           CONTENT SECTIONS
+        ========================================= */
+
+        .section {
+
+            position: relative;
+
+            z-index: 5;
+
+            padding:
+                80px 20px;
+        }
+
+
+        /* =========================================
+           POEM
+        ========================================= */
+
+        .poem-container {
+
+            max-width: 720px;
+
+            margin: auto;
+
+            position: relative;
+
+            padding: 45px 40px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f5dfbd,
+                    #ead0a9
+                );
+
+            color: #32223a;
+
+            border-radius: 4px;
+
+            transform:
+                rotate(-1deg);
+
+            box-shadow:
+                0 25px 50px
+                rgba(0,0,0,0.35);
+        }
+
+        /* Paper corners */
+
+        .poem-container::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -5px;
+            left: -5px;
+
+            width: 40px;
+            height: 40px;
+
+            background:
+                #d8bd91;
+
+            clip-path:
+                polygon(
+                    0 0,
+                    100% 0,
+                    0 100%
+                );
+        }
+
+        .poem-container::after {
+
+            content: "";
+
+            position: absolute;
+
+            right: -5px;
+            bottom: -5px;
+
+            width: 45px;
+            height: 45px;
+
+            background:
+                #c7a87c;
+
+            clip-path:
+                polygon(
+                    100% 0,
+                    100% 100%,
+                    0 100%
+                );
+        }
+
+
+        .poem {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 24px;
+
+            line-height: 1.65;
+
+            text-align: center;
+        }
+
+        .poem-title {
+
+            font-family:
+                "Dancing Script",
+                cursive;
+
+            font-size: 42px;
+
+            color: #9b306d;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+        .poem-heart {
+
+            display: block;
+
+            text-align: right;
+
+            font-size: 35px;
+
+            color: #57227c;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================================
+           SPECIAL MESSAGE
+        ========================================= */
+
+        .special {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 55px 35px;
+
+            text-align: center;
+
+            border-radius: 35px;
+
+            background:
+                rgba(92, 24, 91, 0.28);
+
+            border:
+                1px solid
+                rgba(255, 132, 204, 0.35);
+
+            backdrop-filter:
+                blur(15px);
+
+            box-shadow:
+                0 20px 70px
+                rgba(0,0,0,0.25);
+        }
+
+
+        .special h2 {
+
+            font-family:
+                "Dancing Script",
+                cursive;
+
+            font-size:
+                clamp(45px, 8vw, 65px);
+
+            color: #ffafd3;
+
+            margin-bottom: 25px;
+        }
+
+
+        .special > p {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 21px;
+
+            line-height: 1.8;
+
+            color: #f5dfeb;
+        }
+
+
+        /* =========================================
+           HIDDEN MESSAGE
+        ========================================= */
+
+        .secret {
+
+            display: none;
+
+            margin:
+                35px auto 0;
+
+            max-width: 650px;
+
+            padding: 30px 25px;
+
+            border:
+                1px solid
+                rgba(255, 125, 200, 0.4);
+
+            border-radius: 20px;
+
+            background:
+                rgba(20, 5, 35, 0.35);
+
+            animation:
+                reveal 1s ease;
+        }
+
+        .secret.show {
+
+            display: block;
+        }
+
+        @keyframes reveal {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(20px)
+                    scale(0.9);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        .secret h3 {
+
+            font-family:
+                "Dancing Script",
+                cursive;
+
+            font-size: 40px;
+
+            color: #ffc0dd;
+
+            margin-bottom: 15px;
+        }
+
+        .secret p {
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            color: #f4dfeb;
+        }
+
+
+        /* =========================================
+           ENDING
+        ========================================= */
+
+        .ending {
+
+            min-height: 75vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 60px 20px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        .ending-content {
+
+            max-width: 750px;
+        }
+
+
+        .ending h2 {
+
+            font-family:
+                "Dancing Script",
+                cursive;
+
+            font-size:
+                clamp(60px, 10vw, 95px);
+
+            color: #ffc5df;
+
+            text-shadow:
+                0 0 30px
+                rgba(255, 65, 170, 0.6);
+        }
+
+
+        .ending p {
+
+            margin-top: 20px;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            font-size: 24px;
+
+            line-height: 1.7;
+
+            color: #f2dce9;
+        }
+
+
+        .signature {
+
+            margin-top: 30px;
+
+            font-family:
+                "Dancing Script",
+                cursive;
+
+            font-size: 38px;
+
+            color: #ff9fca;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            position: relative;
+
+            z-index: 5;
+
+            text-align: center;
+
+            padding: 25px;
+
+            font-size: 12px;
+
+            color: #aa8d9f;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .moon {
+
+                width: 50px;
+                height: 50px;
+
+                top: 25px;
+                right: 25px;
+            }
+
+            .moon::after {
+
+                width: 50px;
+                height: 50px;
+
+                left: 14px;
+
+                top: -6px;
+            }
+
+
+            .hero {
+
+                min-height: 100svh;
+
+                padding:
+                    35px 18px;
+            }
+
+
+            .small-title {
+
+                font-size: 10px;
+
+                letter-spacing: 2px;
+
+                margin-bottom: 15px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 65px;
+            }
+
+
+            .kindred {
+
+                font-size: 43px;
+
+                margin-top: 18px;
+            }
+
+
+            .cake {
+
+                font-size: 58px;
+
+                margin: 20px 0;
+            }
+
+
+            .hero-message {
+
+                font-size: 18px;
+
+                line-height: 1.6;
+            }
+
+
+            .btn {
+
+                width: 100%;
+
+                max-width: 300px;
+
+                font-size: 14px;
+
+                padding:
+                    14px 20px;
+            }
+
+
+            .section {
+
+                padding:
+                    60px 15px;
+            }
+
+
+            .poem-container {
+
+                padding:
+                    35px 20px;
+            }
+
+
+            .poem-title {
+
+                font-size: 35px;
+            }
+
+
+            .poem {
+
+                font-size: 19px;
+
+                line-height: 1.7;
+            }
+
+
+            .special {
+
+                padding:
+                    40px 20px;
+            }
+
+
+            .special > p {
+
+                font-size: 18px;
+
+                line-height: 1.7;
+            }
+
+
+            .secret {
+
+                padding:
+                    25px 18px;
+            }
+
+
+            .secret h3 {
+
+                font-size: 35px;
+            }
+
+
+            .secret p {
+
+                font-size: 18px;
+            }
+
+
+            .ending {
+
+                min-height: 65vh;
+
+                padding:
+                    40px 15px;
+            }
+
+
+            .ending h2 {
+
+                font-size: 60px;
+            }
+
+
+            .ending p {
+
+                font-size: 20px;
+            }
+
+
+            .signature {
+
+                font-size: 32px;
+            }
+
+        }
+
+
+        /* =========================================
+           VERY SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            .hero h1 {
+
+                font-size: 55px;
+            }
+
+            .kindred {
+
+                font-size: 37px;
+            }
+
+            .hero-message {
+
+                font-size: 16px;
+            }
+
+            .poem {
+
+                font-size: 17px;
+            }
+
+            .special h2 {
+
+                font-size: 40px;
+            }
+
+            .ending h2 {
+
+                font-size: 52px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         STARS
+    ========================================= -->
+
+    <div
+        class="stars"
+        id="stars">
+    </div>
+
+
+    <!-- Moon -->
+
+    <div class="moon"></div>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                A Special Day For Someone Special
+            </div>
+
+
+            <h1>
+                Happy<br>
+                Birthday
+            </h1>
+
+
+            <div class="kindred">
+                To My Kindred ❤️
+            </div>
+
+
+            <div class="cake">
+                🎂
+            </div>
+
+
+            <p class="hero-message">
+
+                Some people come into our lives
+                and become more than just people.
+
+                They become a part of our heart,
+                our memories and our story.
+
+                <br><br>
+
+                Today, I celebrate
+                <strong>you. ❤️</strong>
+
+            </p>
+
+
+            <button
+                class="btn"
+                onclick="celebrateBirthday()">
+
+                🎉 Celebrate Your Birthday
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         POEM
+    ========================================= -->
+
+    <section class="section">
+
+        <div class="poem-container">
+
+            <div class="poem-title">
+                From My Heart ❤️
+            </div>
+
+
+            <div class="poem">
+
+                Such a night has come,<br>
+
+                Which is very blessed.<br>
+
+                The one whom the whole world desires,<br>
+
+                He is close to me.<br>
+
+                I have so much to say,<br>
+
+                But still there are questions in my heart.<br>
+
+                What I say in my dreams, everyday,<br>
+
+                Should I say it again or not?<br>
+
+                <br>
+
+                In your eyes,<br>
+
+                There is a special kind of grace.<br>
+
+                Oh... in your eyes,<br>
+
+                There is a special kind of grace.<br>
+
+                <br>
+
+                It makes my heart<br>
+
+                dance like a kite<br>
+
+                in the wind from your breath.
+
+            </div>
+
+
+            <span class="poem-heart">
+                ♡
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         SPECIAL MESSAGE
+    ========================================= -->
+
+    <section class="section">
+
+        <div class="special">
+
+            <h2>
+                A Special Message
+            </h2>
+
+
+            <p>
+
+                On your birthday, I don't just wish you
+                another year of life.
+
+                <br><br>
+
+                I wish you countless reasons to smile,
+                peaceful days, beautiful memories,
+                and people who always remind you
+                how special you are.
+
+                <br><br>
+
+                You are someone who holds a special
+                place in my heart, and I hope this little
+                website becomes one tiny memory
+                that makes you smile whenever you
+                look back at it.
+
+            </p>
+
+
+            <button
+                class="btn"
+                onclick="openSecretMessage()">
+
+                💌 Open One More Message
+
+            </button>
+
+
+            <!-- Hidden message -->
+
+            <div
+                class="secret"
+                id="secretMessage">
+
+                <h3>
+                    To My Kindred ❤️
+                </h3>
+
+
+                <p>
+
+                    I don't know how many pages
+                    our story will have,
+
+                    but I hope there will always
+                    be beautiful chapters waiting
+                    for us.
+
+                    <br><br>
+
+                    Keep smiling.
+                    Keep dreaming.
+                    Keep being the wonderful
+                    person you are.
+
+                    <br><br>
+
+                    And today, on your special day...
+
+                    <br><br>
+
+                    <strong>
+                        Happy Birthday,
+                        my kindred. 🎂❤️✨
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         ENDING
+    ========================================= -->
+
+    <section class="ending">
+
+        <div class="ending-content">
+
+            <h2>
+                💕💖❤️
+            </h2>
+
+
+            <p>
+
+                May your days be filled with happiness,
+                your heart with love,
+                and your life with beautiful memories.
+
+                <br><br>
+
+                Here's to another beautiful year
+                of your life.
+
+            </p>
+
+
+            <div class="signature">
+
+                With love, always ❤️
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        Made with ❤️ especially for my kindred
+
+    </footer>
+
+
+
+    <script>
+
+
+        /* =========================================
+           CREATE STARS
+        ========================================= */
+
+        const stars =
+            document.getElementById("stars");
+
+
+        for (let i = 0; i < 100; i++) {
+
+            const star =
+                document.createElement("div");
+
+            star.className = "star";
+
+
+            star.style.left =
+                Math.random() * 100 + "%";
+
+
+            star.style.top =
+                Math.random() * 100 + "%";
+
+
+            star.style.animationDelay =
+                Math.random() * 3 + "s";
+
+
+            star.style.animationDuration =
+                (1 + Math.random() * 3) + "s";
+
+
+            stars.appendChild(star);
+        }
+
+
+
+        /* =========================================
+           BIRTHDAY CONFETTI
+        ========================================= */
+
+        function celebrateBirthday() {
+
+            // Main explosion
+
+            confetti({
+
+                particleCount: 180,
+
+                spread: 110,
+
+                startVelocity: 45,
+
+                gravity: 0.8,
+
+                scalar: 1.1,
+
+                origin: {
+                    x: 0.5,
+                    y: 0.55
+                }
+
+            });
+
+
+            // Left explosion
+
+            setTimeout(() => {
+
+                confetti({
+
+                    particleCount: 100,
+
+                    spread: 90,
+
+                    startVelocity: 35,
+
+                    origin: {
+                        x: 0.08,
+                        y: 0.65
+                    }
+
+                });
+
+            }, 250);
+
+
+            // Right explosion
+
+            setTimeout(() => {
+
+                confetti({
+
+                    particleCount: 100,
+
+                    spread: 90,
+
+                    startVelocity: 35,
+
+                    origin: {
+                        x: 0.92,
+                        y: 0.65
+                    }
+
+                });
+
+            }, 400);
+
+
+            // Final shower
+
+            setTimeout(() => {
+
+                confetti({
+
+                    particleCount: 150,
+
+                    spread: 130,
+
+                    startVelocity: 30,
+
+                    origin: {
+                        x: 0.5,
+                        y: 0.35
+                    }
+
+                });
+
+            }, 800);
+
+
+            // Scroll to poem
+
+            setTimeout(() => {
+
+                document
+                    .querySelector(".poem-container")
+                    .scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+            }, 1000);
+
+        }
+
+
+
+        /* =========================================
+           SECRET MESSAGE
+        ========================================= */
+
+        function openSecretMessage() {
+
+            const message =
+                document.getElementById(
+                    "secretMessage"
+                );
+
+
+            message.classList.add("show");
+
+
+            // Confetti
+
+            confetti({
+
+                particleCount: 130,
+
+                spread: 100,
+
+                startVelocity: 35,
+
+                origin: {
+                    x: 0.5,
+                    y: 0.65
+                }
+
+            });
+
+
+            // Scroll to message
+
+            setTimeout(() => {
+
+                message.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "center"
+
+                });
+
+            }, 300);
+
+        }
+
+
+
+        /* =========================================
+           FLOATING HEARTS
+        ========================================= */
+
+        function createHeart() {
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.className = "heart";
+
+
+            const hearts = [
+
+                "❤️",
+                "💕",
+                "💗",
+                "💖",
+                "💞",
+                "✨"
+
+            ];
+
+
+            heart.innerHTML =
+                hearts[
+                    Math.floor(
+                        Math.random()
+                        * hearts.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+
+            heart.style.fontSize =
+                (15 + Math.random() * 20)
+                + "px";
+
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 5)
+                + "s";
+
+
+            document.body.appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 10000);
+
+        }
+
+
+        setInterval(
+            createHeart,
+            900
+        );
+
+
+
+        /* =========================================
+           SMALL CONFETTI ON PAGE LOAD
+        ========================================= */
+
+        window.addEventListener(
+            "load",
+            () => {
+
+                setTimeout(() => {
+
+                    confetti({
+
+                        particleCount: 70,
+
+                        spread: 70,
+
+                        origin: {
+                            x: 0.5,
+                            y: 0.65
+                        }
+
+                    });
+
+                }, 1200);
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
